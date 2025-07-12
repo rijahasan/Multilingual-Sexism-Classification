@@ -30,7 +30,8 @@ To improve generalization and data diversity, we applied three main augmentation
 - Inspired by NYCU’s 2024 winning strategy  
 - Applied to both original and cross‑translated datasets
 
-All tasks used cross-translation and observed significant improvement in ICM, ICM Norm, and F1 scores.
+All tasks used cross-translation in training and observed significant improvement in ICM, ICM Norm, and F1 scores.
+
 ---
 
 ## Tasks
@@ -41,7 +42,7 @@ All tasks used cross-translation and observed significant improvement in ICM, IC
 
 ### Task 2: Source Intention Classification (Multi-class)
 - **Classes**: NO, DIRECT, REPORTED, JUDGMENTAL
-- **Approach**: Metadata-aware modeling using annotator demographic splits, class balancing with AEDA Augmentation, and separate pipelines for hard and soft labels. Metadata aware modeling involved creating six component models to simulate six annotators, built for both English and Spanish + soft and hard evaluations, totaling the number of models trained for this approach to be 24. Similarly, 4 models were trained for AEDA and cross-translation approach.
+- **Approach**: Metadata-aware modeling using annotator demographic splits, class balancing with AEDA Augmentation, and separate pipelines for hard and soft labels. Metadata aware modeling involved creating six component models to simulate six annotators, built for both English and Spanish + soft and hard evaluations, totaling the number of models trained for this approach to be 24. Similarly, 4 models were trained for AEDA and cross-translation approach each.
 
 ### Task 3: Sexism Categorization (Multi-label)
 - **Categories**: Multiple sexism categories per tweet: Ideological and inequality, Stereotyping and dominance, Objectification, Sexual violence, Misogyny and non-sexual violence
