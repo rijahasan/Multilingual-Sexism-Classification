@@ -4,25 +4,12 @@
 
 This project presents a comprehensive multilingual NLP framework for the detection and categorization of **sexism in tweets**, developed for the CLEF EXIST 2025 Lab. The solution tackles three related tasks in **both English and Spanish**, using **ensemble learning**, **data augmentation**, and **cross-lingual training strategies**.
 
-We built and fine-tuned **12 independent models**, (and 50+ test models) optimized for hard and soft probability predictions across tasks and languages. Key innovations include dynamic ensembling, translation-based augmentation, and post-processing techniques that simulate real-world annotation behavior.
+We built and fine-tuned **12 independent models**, optimized for hard and soft probability predictions across tasks and languages. Key innovations include dynamic ensembling, translation-based augmentation, and post-processing techniques that simulate real-world annotation behavior. 
+
+Our paper detailing the results and approaches in depth will by published by September 2025 and available at EXIST's official website.
 
 ---
 
-## Tasks
-
-### Task 1: Sexism Identification (Binary Classification)
-- **Output**: "YES" or "NO"
-- **Approach**: Ensemble-based classification using soft and hard thresholds derived from annotator votes.
-
-### Task 2: Source Intention Classification (Multi-class)
-- **Classes**: NO, DIRECT, REPORTED, JUDGMENTAL
-- **Approach**: Metadata-aware modeling using annotator demographic splits, class balancing with AEDA Augmentation, and separate pipelines for hard and soft labels.
-
-### Task 3: Sexism Categorization (Multi-label)
-- **Categories**: Multiple sexism categories per tweet: Ideological and inequality, Stereotyping and dominance, Objectification, Sexual violence, Misogyny and non-sexual violence
-- **Approach**: EASE-S and AEDA Augmentation and snapped soft probabilities to reflect multi-label annotation using a 1/6 threshold for annotator agreement.
-
----
 ## Data Augmentation
 
 To improve generalization and data diversity, we applied three main augmentation strategies:
@@ -42,6 +29,23 @@ To improve generalization and data diversity, we applied three main augmentation
 - Random punctuation insertion in tweets  
 - Inspired by NYCU’s 2024 winning strategy  
 - Applied to both original and cross‑translated datasets
+
+All tasks used cross-translation and observed significant improvement in ICM, ICM Norm, and F1 scores.
+---
+
+## Tasks
+
+### Task 1: Sexism Identification (Binary Classification)
+- **Output**: "YES" or "NO"
+- **Approach**: Ensemble-based classification using soft and hard thresholds derived from annotator votes. 
+
+### Task 2: Source Intention Classification (Multi-class)
+- **Classes**: NO, DIRECT, REPORTED, JUDGMENTAL
+- **Approach**: Metadata-aware modeling using annotator demographic splits, class balancing with AEDA Augmentation, and separate pipelines for hard and soft labels. Metadata aware modeling involved creating six component models to simulate six annotators, built for both English and Spanish + soft and hard evaluations, totaling the number of models trained for this approach to be 24. Similarly, 4 models were trained for AEDA and cross-translation approach.
+
+### Task 3: Sexism Categorization (Multi-label)
+- **Categories**: Multiple sexism categories per tweet: Ideological and inequality, Stereotyping and dominance, Objectification, Sexual violence, Misogyny and non-sexual violence
+- **Approach**: EASE-S and AEDA Augmentation and snapped soft probabilities to reflect multi-label annotation using a 1/6 threshold for annotator agreement.
 
 ---
 ## Architecture
