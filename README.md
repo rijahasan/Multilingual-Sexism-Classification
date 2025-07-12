@@ -4,7 +4,7 @@
 
 This project presents a comprehensive multilingual NLP framework for the detection and categorization of **sexism in tweets**, developed for the CLEF EXIST 2025 Lab. The solution tackles three related tasks in **both English and Spanish**, using **ensemble learning**, **data augmentation**, and **cross-lingual training strategies**.
 
-We built and fine-tuned **12 independent models**, optimized for hard and soft probability predictions across tasks and languages. Key innovations include dynamic ensembling, translation-based augmentation, and post-processing techniques that simulate real-world annotation behavior.
+We built and fine-tuned **12 independent models**, (and 50+ test models) optimized for hard and soft probability predictions across tasks and languages. Key innovations include dynamic ensembling, translation-based augmentation, and post-processing techniques that simulate real-world annotation behavior.
 
 ---
 
